@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widgets</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="greet.js"></script>
+    <script src="transportFee.js"></script>
+    <script src="totalPhoneBill.js"></script>
+    <script src="wordGame.js"></script>
+</head>
+<body class="bg-gray-500 flex flex-col items-center justify-center space-y-12">
+    <h1 class="text-3xl font-bold mb-2 pt-8 text-white">Bootcamp Widgets</h1>
+    <!-- Greet Widget -->
+    <div x-data="greetWidget()" class="bg-pink-500 p-8 rounded shadow-md w-1/2">
+        <h1 class="text-2xl mb-4">Greet Widget</h1>
+        <input x-model="name" type="text" placeholder="Enter your name" class="p-2 border rounded mb-4 w-full">
+        <select x-model="language" class="p-2 border rounded mb-4 w-full">
+            <option value="English">English</option>
+            <option value="Zulu">Zulu</option>
+            <option value="French">French</option>
+            <option value="Sotho">Sotho</option>
+        </select>
+        <button @click="greet()" class="bg-blue-500 text-white px-4 py-2 rounded">Greet</button>
+        <div x-text="greeting" class="mt-4 text-xl text-gray-700"></div>
+    </div>
+
+    <!-- Transport Fee Widget -->
+    <div x-data="transportFeeWidget()" class="bg-pink-500 p-8 rounded shadow-md w-1/2">
+        <h1 class="text-2xl mb-4">Transport Fee Widget</h1>
+        <div class="mb-4">
+            <label class="mr-2"><input type="radio" x-model="shift" value="morning"> Morning</label>
+            <label class="mr-2"><input type="radio" x-model="shift" value="afternoon"> Afternoon</label>
+            <label class="mr-2"><input type="radio" x-model="shift" value="night"> Night</label>
+        </div>
+        <button @click="transportFee()" class="bg-blue-500 text-white px-4 py-2 rounded">Calculate Fee</button>
+        <div x-text="fee" class="mt-4 text-xl text-gray-700"></div>
+    </div>
+
+    <!-- Total Phone Bill Widget -->
+    <div x-data="totalPhoneBillWidget()" class="bg-pink-500 p-8 rounded shadow-md w-1/2">
+        <h1 class="text-2xl mb-4">Total Phone Bill Widget</h1>
+        <input x-model="phoneString" type="text" placeholder="Enter phone usage string (e.g., 'call, sms, call')" class="p-2 border rounded mb-4 w-full">
+        <button @click="totalPhoneBill()" class="bg-blue-500 text-white px-4 py-2 rounded">Calculate Bill</button>
+        <div x-text="bill" class="mt-4 text-xl text-gray-700"></div>
+    </div>
+
+    <!-- Word Game Widget -->
+    <div x-data="wordGameWidget()" class="bg-pink-500 p-8  rounded shadow-md w-1/2">
+        <h1 class="text-2xl mb-4">Word Game Widget</h1>
+        <textarea x-model="sentence" placeholder="Enter a sentence (e.g., 'The quick brown fox jumps over the lazy dog')" class="p-2 border rounded mb-4 w-full"></textarea>
+        <div class="mb-4">
+            <button @click="longestWord()" class="bg-blue-500 text-white px-4 py-2 rounded">Longest Word</button>
+            <button @click="shortestWord()" class="bg-green-500 text-white px-4 py-2 rounded">Shortest Word</button>
+            <button @click="wordLengths()" class="bg-purple-500 text-white px-4 py-2 rounded">Word Lengths</button>
+        </div>
+        <div class="mt-4">
+            <div><strong>Longest Word:</strong> <span x-text="longest" class="text-gray-700"></span></div>
+            <div><strong>Shortest Word:</strong> <span x-text="shortest" class="text-gray-700"></span></div>
+            <div><strong>Word Lengths:</strong> <span x-text="lengths" class="text-gray-700"></span></div>
+        </div>
+    </div>
+    <!-- Contact Details -->
+    <div class="m-8 pb-8 flex flex-col items-center text-white">
+        <h2 class="text-xl font-bold">Contact Details</h2>
+        <p>siya.coma@gmail.com | (+27) 78 299 1217</p>
+    </div>
+</body>
+</html>
